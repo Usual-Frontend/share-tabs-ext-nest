@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { CommonModule } from './common/common.module';
 import { TabsModule } from './tabs/tabs.module';
+import { TabGroupModule } from './tab-group/tab-group.module';
 
 @Module({
   imports: [
@@ -14,12 +15,13 @@ import { TabsModule } from './tabs/tabs.module';
     RouterModule.register([
       {
         path: 'api',
-        children: [TabsModule],
+        children: [TabsModule, TabGroupModule],
       },
     ]),
     PrismaModule,
     CommonModule,
     TabsModule,
+    TabGroupModule,
   ],
   controllers: [],
   providers: [],

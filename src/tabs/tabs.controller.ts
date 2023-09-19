@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { TabsService } from './tabs.service';
-import { RecommendMeDto, SaveTabGroupDto } from './dto';
+import { RecommendMeDto } from './dto';
 
 @Controller('tabs')
 export class TabsController {
@@ -9,11 +9,6 @@ export class TabsController {
   @Post('recommend_me')
   recommendMe(@Body() _dto: RecommendMeDto) {
     return this.tabsService.recommendMe(_dto);
-  }
-
-  @Post('save_tab_group')
-  saveTabGroup(@Body() _dto: SaveTabGroupDto) {
-    return this.tabsService.saveTabGroup(_dto);
   }
 
   @Get('/all')

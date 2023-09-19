@@ -1,4 +1,4 @@
-import { IsOptional, IsString, IsUrl, IsJSON } from 'class-validator';
+import { IsOptional, IsString, IsUrl } from 'class-validator';
 
 export class RecommendMeDto {
   @IsUrl()
@@ -8,13 +8,4 @@ export class RecommendMeDto {
   @IsString()
   @IsOptional()
   title: string;
-}
-
-export class SaveTabGroupDto {
-  @IsString()
-  @IsOptional()
-  tag: string;
-
-  @IsJSON()
-  tab_array_json: JSON;
 }
