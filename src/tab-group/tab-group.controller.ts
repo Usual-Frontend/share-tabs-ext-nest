@@ -21,8 +21,8 @@ export class TabGroupController {
   }
 
   @Get()
-  findAll() {
-    return this.tabGroupService.findAll();
+  async findAll() {
+    return await this.tabGroupService.findAll();
   }
 
   @Get('/test')

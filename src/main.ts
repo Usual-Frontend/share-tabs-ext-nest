@@ -1,8 +1,14 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+let PORT = 3339;
+if (process.env.MODE === 'PROD') {
+  PORT = 3340;
+}
 
 async function bootstrap() {
+  console.log('mode:', process.env.MODE);
+
   const app = await NestFactory.create(AppModule, {
     cors: {
       allowedHeaders: '*',
@@ -15,6 +21,6 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
-  await app.listen(3339);
+  await app.listen(PORT);
 }
 bootstrap();

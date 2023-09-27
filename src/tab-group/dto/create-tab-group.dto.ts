@@ -6,5 +6,5 @@ export class CreateTabGroupDto {
   tag: string;
 
   @IsJSON()
-  tab_array_json: JSON;
+  tab_array_json: string;
 }
