@@ -1,5 +1,5 @@
 {
-  "name": "grammy_bot_nest",
+  "name": "share-tabs-ext-nest",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -8,7 +8,8 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
+    "start_old": "nest start",
+    "start": "node dist/src/main.js",
     "start:dev": "nest start --watch -- -b swc",
     "start:debug": "nest start --debug --watch",
     "start:prod": "dotenv -e .env.prod -- node dist/src/main",
@@ -20,7 +21,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "postinstall": "npx prisma generate"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
@@ -29,11 +31,13 @@
     "@nestjs/mapped-types": "^0.0.1",
     "@nestjs/platform-express": "^9.0.0",
     "@prisma/client": "5.2.0",
+    "@vercel/node": "^3.0.6",
     "axios": "^1.5.0",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "dotenv": "^16.3.1",
     "dotenv-cli": "^7.3.0",
+    "express": "^4.18.2",
     "grammy": "^1.17.2",
     "js-cookie": "^3.0.5",
     "prisma": "^5.2.0",
